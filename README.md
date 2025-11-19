@@ -27,8 +27,8 @@ redirects, middleware-ready architecture, and a powerful request/response API.
 Clone the project:
 
 ```sh
-git clone https://github.com/YourName/XpressPP.git
-cd XpressPP
+git clone https://github.com/QuickDigi/Xpress
+cd Xpress
 ````
 
 Build with g++:
