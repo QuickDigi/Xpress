@@ -1,0 +1,109 @@
+All notable changes to this project will be documented in this file.
+
+---
+
+## 🚀 v2.0.0 — Major Release
+
+### ✨ New Features
+- Fully rewritten core for improved stability and performance.
+- New ultra-fast routing engine with pattern matching (`/user/:id`).
+- Unified Request/Response API (cleaner, consistent, Express-like).
+- Advanced caching system (ETag, Cache-Control, No-Cache).
+- Mobile & XHR detection.
+- Content Negotiation (JSON, HTML, XML, CSV).
+- JSONP and SSE (Server-Sent Events) support.
+- Built-in Bearer Token authentication helpers.
+- Cookie Manager with advanced options (maxAge, httpOnly, secure, sameSite).
+- File handling: inline file serving + download support.
+- Full request inspector (`/request-info`).
+- New pagination helper for APIs.
+- Unified error/success response format.
+- Rate-limit header support.
+- Server metrics + Server-Timing header.
+- Trusted proxy support.
+- Security headers (XSS, CSP, Frame-Options, etc).
+
+---
+
+## 🛠 Improvements
+- Better memory usage and more stable performance under heavy load.
+- Faster header parsing.
+- Cleaner thread-pool management.
+- Optimized request pipeline.
+- Improved MIME type handling.
+- Better UTF-8 support on Windows.
+- More accurate request duration tracking.
+
+---
+
+## 🐛 Bug Fixes
+- Fixed issues with large POST JSON bodies.
+- Fixed cookie parsing inconsistencies.
+- Fixed incorrect ETag comparison.
+- Fixed missing headers on redirects.
+- Fixed Windows console UTF-8 printing.
+- Fixed duration timer not resetting properly.
+
+---
+
+## ⚠ Breaking Changes (from v1.x)
+| Previous (v1.x) | New (v2.0.0) |
+|------------------|--------------|
+| `res.sendJSON()` | `res.json()` |
+| `res.sendHTML()` | `res.html()` |
+| `req.json()` | `req.jsonBody` |
+| Raw cookie strings | `CookieOptions` struct |
+| Old router | New optimized routing engine |
+| `sendFile()` behavior inconsistent | Unified and stable file system API |
+
+---
+
+## 📦 Migration Guide
+
+### JSON
+```cpp
+// v1
+res.sendJSON(data);
+
+// v2
+res.json(data);
+````
+
+### HTML
+
+```cpp
+res.sendHTML("<h1>Hello</h1>");
+```
+
+⬇
+
+```cpp
+res.html("<h1>Hello</h1>");
+```
+
+### Cookies
+
+```cpp
+res.cookie("token", "123", "HttpOnly");
+```
+
+⬇
+
+```cpp
+Response::CookieOptions opt;
+opt.httpOnly = true;
+res.cookie("token", "123", opt);
+```
+
+---
+
+## 🎉 Notes
+
+v2.0.0 is the most stable, polished, and feature-complete release of Xpress++.
+It is now recommended for all production deployments.
+
+---
+
+## ❤️ Maintainer
+
+**QuickDigi — Mohamed Mostafa Brawh**
