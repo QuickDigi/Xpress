@@ -1,4 +1,3 @@
-github: QuickDigi
+github: [QuickDigi]
 patreon: QuickDigi
-custom:
-  - "https://quickdigi.vercel.app/"
+custom: ["https://quickdigi.vercel.app"]
