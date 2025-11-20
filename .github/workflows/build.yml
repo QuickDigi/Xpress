@@ -1,0 +1,22 @@
+name: Build Xpress++
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install build tools
+        run: sudo apt-get update && sudo apt-get install -y cmake g++ clang
+
+      - name: Create Build Directory
+        run: mkdir build
+
+      - name: Configure Project
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build
+        run: cmake --build build --config Release
